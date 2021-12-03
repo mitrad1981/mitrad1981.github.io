@@ -129,7 +129,6 @@ function heatMap(){
                     lineGraph(d.properties.name);
                     latestCases(d.properties.name);
 
-                    // d3.selectAll('.arrow').attr('visibility','visible')
 
                     document.getElementById('resetButton').style.visibility = 'visible'
 
