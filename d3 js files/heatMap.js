@@ -25,23 +25,12 @@ function heatMap(){
 
     var color = d3.scaleThreshold()
         .domain([10000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1500000000])
-        .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
+        //.range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", //"rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
         // .range(['#64D1EC', '#57ADEB', '#559DEE', '#517BEB', '#4E72F2', '#4D6EF3']);
-        // .range(["rgb(242, 254, 255)", "rgb(171, 196, 249)", "rgb(135, 169, 242)", "rgb(106, 149, 245)", "rgb(84, 142, 230)", "rgb(100, 127, 205)","rgb(67, 96, 180)","rgb(84, 73, 143)","rgb(80, 70, 107)","rgb(23, 26, 45)"]);
+        .range(["rgb(242, 254, 255)", "rgb(171, 196, 249)", "rgb(135, 169, 242)", "rgb(106, 149, 245)", "rgb(84, 142, 230)", "rgb(100, 127, 205)","rgb(67, 96, 180)","rgb(84, 73, 143)","rgb(80, 70, 107)","rgb(23, 26, 45)"]);
 
     var path = d3.geoPath();
 
-    // const zoom = d3.zoom()
-    //     .scaleExtent([1, 40])
-    //     .translateExtent([[0,0], [width, height]])
-    //     .extent([[0, 0], [width, height]])
-    //     .on("zoom", zoommove);
-    
-    // var zoom = d3.zoom()
-    //     .scaleExtent([1, 100])
-    //     .on('zoom', zoomFn);
-
-    // Feel free to change or delete any of the code you see in this editor!
     zoomed = ()=>{
         const {x,y,k} = d3.event.transform
         let t = d3.zoomIdentity
@@ -59,10 +48,7 @@ function heatMap(){
                 .append('g')
                 .attr('class', 'map')
                 .append("g").attr('transform','translate(50,50)');
-              
-    // function zoomFn() {
-    //     d3.select('#divBox').select('svg').select('g').attr('transform', 'translate(' + d3.event.transform.x + ',' + d3.event.transform.y + ') scale(' + d3.event.transform.k + ')');
-    // }
+
 
     var projection = d3.geoMercator()
                     .scale(0.03939*width + 0.104166*height+20)
@@ -142,8 +128,6 @@ function heatMap(){
                     countrySpecificHist(d.properties.name);
                     lineGraph(d.properties.name);
                     latestCases(d.properties.name);
-                    worldRace(d.properties.name);
-                    worldPercent(d.properties.name);
 
                     // d3.selectAll('.arrow').attr('visibility','visible')
 
@@ -163,28 +147,7 @@ function heatMap(){
     
     svg.append("path")
         .datum(topojson.mesh(final_data_simplified, function(a, b) { return a.id !== b.id; }))
-        // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
         .attr("class", "names")
         .attr("d", path);
-
-    // var myimage = svg.append('image')
-    //     .attr('xlink:href', './images/backArrow.png')
-    //     .attr('class', 'arrow')
-    //     .attr('width', 40)
-    //     .attr('height', 200)
-    //     .attr('x', 0)
-    //     .attr('y', 0.9*height)
-    //     .on('mouseover', function(d,i){
-    //         d3.select(this).style('opacity', 0.6)
-    //     })
-    //     .on('mouseout', function(d,i){
-    //         d3.select(this).style('opacity', 1)
-    //     })
-    //     .on('click', function(d,i){
-    //         lineGraph('all')
-    //         countrySpecificHist('all')
-    //         d3.select(this).attr('visibility','hidden')
-    //     })
-    //     .attr('visibility','hidden')
     }
 }
