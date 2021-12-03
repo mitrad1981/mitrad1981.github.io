@@ -106,16 +106,6 @@ function latestCases(country){
             .style('font-size', '80%');
 
 
-        // add the x Axis
-        // svg.append("g")
-        // .attr("transform", "translate(0," + height + ")")
-        // .call(d3.axisBottom(x))
-        // .selectAll('text').style('fill', 'white');
-
-        // add the y Axis
-        // svg.append("g")
-        // .call(d3.axisLeft(y))
-        // .selectAll('text').style('fill','white');
         var parseDate = d3.timeParse("%Y-%m-%d");
 
         var todayDate = String(parseDate(last_entry['date'])).split(' ');

@@ -42,12 +42,7 @@ function countrySpecificHist(country){
                     .attr('height', height + margin.left + margin.right )
                     .append('g')
                     .attr('transform', `translate(${margin.left}, ${margin.top})`)
-                    // .call(
-                    //     d3.zoom()
-                    //     .translateExtent([[0,0], [width, height]])
-                    //     .extent([[0, 0], [width, height]])
-                    //     .on('zoom', zoom)
-                    // )
+
         
 
         // the scale
@@ -59,11 +54,7 @@ function countrySpecificHist(country){
         // for the width of rect
         let xBand = d3.scaleBand().domain(d3.range(-1, ordinals.length)).range([0, width])
 
-        // zoomable rect
-        // svg.append('rect')
-        // .attr('class', 'zoom-panel')
-        // .attr('width', width)
-        // .attr('height', height)
+
 
         // x axis
         let xAxis = svg.append('g')
@@ -87,11 +78,6 @@ function countrySpecificHist(country){
         .on("drag", dragged)
         .on("end", dragended);
 
-        // var fakeClick = function(svg) {
-        //     var event = document.createEvent('MouseEvents');
-        //     event.initMouseEvent('click');
-        //     svg.dispatchEvent(event);
-        // };
 
         function dragstarted(d) {
             
@@ -325,14 +311,6 @@ function countrySpecificHist(country){
 
         var columns = ['Confirmed', 'Active', 'Recovered', 'Deaths', 'Click on each to filter bars']
 
-        // svg.append('rect')
-        //     .style('stroke','white')
-        //     .style('fill','grey')
-        //     .attr('width', 100)
-        //     .attr('height',100)
-        //     .attr('x', 10)
-        //     .attr('y', 10)
-        //     .attr("transform","translate(100,100)");
 
 
         svg.selectAll('#histogramNode')
