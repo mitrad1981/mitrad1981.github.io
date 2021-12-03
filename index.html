@@ -52,58 +52,28 @@
         </div>
         
     </div>
-    <script>
-        // if(document.documentElement.scrollHeight <= document.documentElement.offsetWidth){
-            //first column
-            document.getElementById("Top6").style.height = (document.documentElement.scrollHeight * 0.26) + "px"
-            document.getElementById("worldRace").style.height = (document.documentElement.scrollHeight * 0.52) + "px"
-            document.getElementById("statusNode").style.height = (document.documentElement.scrollHeight * 0.1) + "px"
-
-            //second column
-            document.getElementById("node").style.height = (document.documentElement.scrollHeight * 0.40) + "px"
-            document.getElementById("latestCasesNode").style.height = (document.documentElement.scrollHeight * 0.425) + "px"
-
-            //third column
-            document.getElementById("histogramNode").style.height = (document.documentElement.scrollHeight * 0.468) + "px"
-            document.getElementById("lineNode").style.height = (document.documentElement.scrollHeight * 0.425) + "px"
-
-        // }
-        if(document.documentElement.scrollHeight > document.documentElement.offsetWidth){
-            document.getElementById("Top6").style.height = (380) + "px"
-            document.getElementById("worldRace").style.height = (490) + "px"
-            document.getElementById("statusNode").style.height = (196) + "px"
-            document.getElementById("statusNode").style.height = (196) + "px"
-
-        }
-
-    </script>
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
-    <!-- <script src="https://d3js.org/topojson.v1.min.js"></script> -->
-    <!-- <script src="https://unpkg.com/topojson-simplify@3"></script> -->
-    <!-- <script src="topojson-simplify.min.js"></script> -->
     <script src="d3 js files/d3-tip.js"></script>
     <script type="text/javascript" src="d3 js files/heatMap.js"></script>
     <script type="text/javascript" src="d3 js files/countrySpecificHist.js"></script>
-    <script type="text/javascript" src="d3 js files/percentInfo.js"></script>
     <script type="text/javascript" src="d3 js files/LatestCases.js"></script>
     <script type="text/javascript" src="d3 js files/lineGraphDaily.js"></script>
-    <script type="text/javascript" src="d3 js files/top_6_worldwide.js"></script>
-    <script type="text/javascript" src="d3 js files/worldRace.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
     <script src="https://unpkg.com/topojson@3.0.0/dist/topojson.min.js"></script>
+
     <script>
 
-    </script>
-    <script>
+		document.getElementById("node").style.height = (document.documentElement.scrollHeight * 0.40) + "px"
+		document.getElementById("latestCasesNode").style.height = (document.documentElement.scrollHeight * 0.425) + "px"
 
+		document.getElementById("histogramNode").style.height = (document.documentElement.scrollHeight * 0.468) + "px"
+		document.getElementById("lineNode").style.height = (document.documentElement.scrollHeight * 0.425) + "px"
+		
         heatMap();
-        worldRace('all');
-        top6();
         countrySpecificHist('all');
         lineGraph('all');
-        worldPercent('all');
         latestCases('all');
 
         var w = window.innerWidth;
@@ -114,11 +84,8 @@
 
             if( Math.abs(w*h - new_w*new_h) > 100000){
                 heatMap();
-                worldRace('all');
-                top6();
                 countrySpecificHist('all');
                 lineGraph('all');
-                worldPercent('all');
                 latestCases('all');
             }
 
@@ -131,9 +98,7 @@
             }
         }
 
-        //Setting height values 
     </script>
-    <!-- <script type="text/javascript" src="dataFetch.js"></script> -->
 
     <style>
         rect.zoom-panel {
@@ -174,26 +139,7 @@
             fill: none;
             pointer-events: all;
         }
-        /* .overlay {
-            position: absolute;
-            background: rgba(100,100,100,0);
-            top:0px;
-            bottom:0px;
-            left:0px;
-            right:0px;
-        } */
-/*         
-        .col-md-4 hist{
 
-            @media screen and  (max-width: 1639px){
-                    min-width: 30%;
-            }  
-
-            @media screen and (min-width:900px) and (max-width: 1400px){
-                    min-width: 0%;
-                
-            }   
-        } */
         html, body {
             height: 100%;
         }
